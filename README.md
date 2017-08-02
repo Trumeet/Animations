@@ -31,24 +31,30 @@ Beautiful animations and views from AOSP
 # Usage
 
 
-* FingerprintAnimationImageView
+## Fingerprint isolated animation
 
-  帶有指紋識別動畫的ImageView。
+ **設置 -> 安全性 -> 指紋 -> 新增指紋** 中間的指紋圖標動畫
 
-  **設置 -> 安全性 -> 指紋 -> 新增指紋**
+ 來自 [platform_packages_apps_settings/FingerprintEnrollEnrolling.java](https://github.com/android/platform_packages_apps_settings/blob/master/src/com/android/settings/fingerprint/FingerprintEnrollEnrolling.java)
 
-   ![FingerprintAnimationImageView](https://raw.githubusercontent.com/AndroidSnippet/Animations/master/art/FingerprintAnimationImageView_0.PNG)
+ ![animation](https://raw.githubusercontent.com/AndroidSnippet/Animations/master/art/FingerprintAnimationImageView_0.PNG)
 
-   ```xml
-   <top.trumeet.snippet.aospanimation.library.FingerprintAnimationImageView
+ ```xml
+ <ImageView
              android:id="@+id/fingerprint_animator"
              android:layout_width="@dimen/fingerprint_animation_size"
-             android:layout_height="@dimen/fingerprint_animation_size" />
-   ```
+             android:layout_height="@dimen/fingerprint_animation_size"
+             android:background="@drawable/fp_illustration_enrollment"
+             android:backgroundTint="@color/fingerprint_indicator_background_resting" />
+ ```
 
-   開始動畫: `startIconAnimation()`
+ LoopAnimatedVectorDrawableCompat mFingerprintAnimator = new LoopAnimatedVectorDrawableCompat(AnimatedVectorDrawableCompat.create(this,
+                                                                       R.drawable.enrollment_fingerprint_isolated_animation));
+ fingerprintIsolated.setImageDrawable(mFingerprintAnimator.getDrawable());
 
-   停止動畫: `stopIconAnimation()`
+ 開始動畫: `mFingerprintAnimator.startIconAnimation()`
+
+ 停止動畫: `mFingerprintAnimator.stopIconAnimation()`
 
 # Licenses
 使用本項目請確保您遵守 `Apache License 2.0`

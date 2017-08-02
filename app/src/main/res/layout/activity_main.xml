@@ -7,9 +7,11 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <top.trumeet.snippet.aospanimation.library.FingerprintAnimationImageView
+        <ImageView
             android:id="@+id/fingerprint_animator"
             android:layout_width="@dimen/fingerprint_animation_size"
-            android:layout_height="@dimen/fingerprint_animation_size" />
+            android:layout_height="@dimen/fingerprint_animation_size"
+            android:background="@drawable/fp_illustration_enrollment"
+            android:backgroundTint="@color/fingerprint_indicator_background_resting" />
     </LinearLayout>
 </ScrollView>

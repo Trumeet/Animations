@@ -2,10 +2,12 @@ package top.trumeet.snippet.aospanimation;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
-import top.trumeet.snippet.aospanimation.library.FingerprintAnimationImageView;
+import top.trumeet.snippet.aospanimation.library.drawables.LoopAnimatedVectorDrawableCompat;
 
 /**
  * Created by Trumeet on 2017/8/2.
@@ -13,23 +15,26 @@ import top.trumeet.snippet.aospanimation.library.FingerprintAnimationImageView;
  */
 
 public class MainActivity extends Activity {
-    private FingerprintAnimationImageView mFingerprintAnimator;
+    private LoopAnimatedVectorDrawableCompat mFingerprintAnimator;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        mFingerprintAnimator = findViewById(R.id.fingerprint_animator);
+        ImageView fingerprintIsolated = findViewById(R.id.fingerprint_animator);
+        mFingerprintAnimator = new LoopAnimatedVectorDrawableCompat(AnimatedVectorDrawableCompat.create(this,
+                R.drawable.enrollment_fingerprint_isolated_animation));
+        fingerprintIsolated.setImageDrawable(mFingerprintAnimator.getDrawable());
     }
 
     @Override
     public void onStart () {
         super.onStart();
-        mFingerprintAnimator.startIconAnimation();
+        mFingerprintAnimator.startAnimation();
     }
 
     @Override
     public void onStop () {
-        mFingerprintAnimator.stopIconAnimation();
+        mFingerprintAnimator.stopAnimation();
         super.onStop();
     }
 
@@ -46,10 +51,10 @@ public class MainActivity extends Activity {
     public boolean onOptionsItemSelected (MenuItem item) {
         switch (item.getItemId()) {
             case 0 :
-                mFingerprintAnimator.startIconAnimation();
+                mFingerprintAnimator.startAnimation();
                 return true;
             case 1 :
-                mFingerprintAnimator.stopIconAnimation();
+                mFingerprintAnimator.stopAnimation();
                 return true;
         }
         return false;
