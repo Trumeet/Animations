@@ -1,8 +1,13 @@
 package top.trumeet.snippet.aospanimation;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.content.res.AppCompatResources;
+import android.support.v7.widget.AppCompatImageView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -14,15 +19,19 @@ import top.trumeet.snippet.aospanimation.library.drawables.LoopAnimatedVectorDra
  * Demo activity
  */
 
-public class MainActivity extends Activity {
+public class MainActivity extends AppCompatActivity {
     private LoopAnimatedVectorDrawableCompat mFingerprintAnimator;
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        ImageView fingerprintIsolated = findViewById(R.id.fingerprint_animator);
+        AppCompatImageView fingerprintIsolated = findViewById(R.id.fingerprint_animator);
         mFingerprintAnimator = new LoopAnimatedVectorDrawableCompat(AnimatedVectorDrawableCompat.create(this,
                 R.drawable.enrollment_fingerprint_isolated_animation));
+        fingerprintIsolated.setBackgroundDrawable(AppCompatResources.getDrawable(this, top.trumeet.snippet.aospanimation.library.R.drawable.fp_illustration_enrollment));
+        fingerprintIsolated.setSupportBackgroundTintList(ColorStateList.valueOf(getResources().getColor(top.trumeet.snippet.aospanimation.library.R.color.fingerprint_indicator_background_resting)));
+
         fingerprintIsolated.setImageDrawable(mFingerprintAnimator.getDrawable());
     }
 
