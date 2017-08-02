@@ -1,11 +1,14 @@
 package top.trumeet.snippet.aospanimation.library;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
 import android.graphics.drawable.Drawable;
 import android.support.graphics.drawable.Animatable2Compat;
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
+import android.support.v7.content.res.AppCompatResources;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
@@ -14,7 +17,7 @@ import android.widget.ImageView;
  * @see <a href="https://github.com/android/platform_packages_apps_settings/blob/master/src/com/android/settings/fingerprint/FingerprintEnrollEnrolling.java" />
  */
 
-public class FingerprintAnimationImageView extends ImageView {
+public class FingerprintAnimationImageView extends AppCompatImageView {
     private AnimatedVectorDrawableCompat mIconAnimationDrawable;
     private boolean mAnimationCancelled;
 
@@ -33,10 +36,11 @@ public class FingerprintAnimationImageView extends ImageView {
         init();
     }
 
+
+    @SuppressLint("RestrictedApi")
     private void init () {
-        Drawable background = getResources().getDrawable(R.drawable.fp_illustration_enrollment);
-        DrawableCompat.setTintList(background, ColorStateList.valueOf(getResources().getColor(R.color.fingerprint_indicator_background_resting)));
-        setBackgroundDrawable(background);
+        setBackgroundDrawable(AppCompatResources.getDrawable(getContext(),R.drawable.fp_illustration_enrollment));
+        setSupportBackgroundTintList(ColorStateList.valueOf(getResources().getColor(R.color.fingerprint_indicator_background_resting)));
         mIconAnimationDrawable = AnimatedVectorDrawableCompat.create(getContext(),
                 R.drawable.enrollment_fingerprint_isolated_animation);
         setImageDrawable(mIconAnimationDrawable);
