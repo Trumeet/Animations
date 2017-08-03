@@ -15,5 +15,11 @@
             app:background="@drawable/fp_illustration_enrollment"
             app:backgroundTint="@color/fingerprint_indicator_background_resting"
             />
+        <CheckBox
+            android:id="@+id/check_show_background"
+            android:checked="true"
+            android:text="Show Background"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </ScrollView>

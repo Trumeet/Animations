@@ -40,17 +40,29 @@ Beautiful animations and views from AOSP
  ![animation](https://raw.githubusercontent.com/AndroidSnippet/Animations/master/art/FingerprintAnimationImageView_0.PNG)
 
  ```xml
- <ImageView
+ <android.support.v7.widget.AppCompatImageView
              android:id="@+id/fingerprint_animator"
              android:layout_width="@dimen/fingerprint_animation_size"
              android:layout_height="@dimen/fingerprint_animation_size"
-             android:background="@drawable/fp_illustration_enrollment"
-             android:backgroundTint="@color/fingerprint_indicator_background_resting" />
+             app:background="@drawable/fp_illustration_enrollment"
+             app:backgroundTint="@color/fingerprint_indicator_background_resting"
+             />
  ```
+
+ Set up animation:
+
  ```java
  LoopAnimatedVectorDrawableCompat mFingerprintAnimator = new LoopAnimatedVectorDrawableCompat(AnimatedVectorDrawableCompat.create(this,
                                                                        R.drawable.enrollment_fingerprint_isolated_animation));
  fingerprintIsolated.setImageDrawable(mFingerprintAnimator.getDrawable());
+ ```
+
+ Set background image:
+
+ ```java
+ fingerprintIsolated.setBackgroundDrawable(AppCompatResources.getDrawable(MainActivity.this
+                 , top.trumeet.snippet.aospanimation.library.R.drawable.fp_illustration_enrollment));
+ fingerprintIsolated.setSupportBackgroundTintList(ColorStateList.valueOf(getResources().getColor(top.trumeet.snippet.aospanimation.library.R.color.fingerprint_indicator_background_resting)));
  ```
 
  開始動畫: `mFingerprintAnimator.startIconAnimation()`

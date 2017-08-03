@@ -1,7 +1,6 @@
 package top.trumeet.snippet.aospanimation;
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.support.graphics.drawable.AnimatedVectorDrawableCompat;
@@ -10,7 +9,8 @@ import android.support.v7.content.res.AppCompatResources;
 import android.support.v7.widget.AppCompatImageView;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageView;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 
 import top.trumeet.snippet.aospanimation.library.drawables.LoopAnimatedVectorDrawableCompat;
 
@@ -26,11 +26,27 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AppCompatImageView fingerprintIsolated = findViewById(R.id.fingerprint_animator);
+        final AppCompatImageView fingerprintIsolated = findViewById(R.id.fingerprint_animator);
         mFingerprintAnimator = new LoopAnimatedVectorDrawableCompat(AnimatedVectorDrawableCompat.create(this,
                 R.drawable.enrollment_fingerprint_isolated_animation));
-        fingerprintIsolated.setBackgroundDrawable(AppCompatResources.getDrawable(this, top.trumeet.snippet.aospanimation.library.R.drawable.fp_illustration_enrollment));
+
+        fingerprintIsolated.setBackgroundDrawable(AppCompatResources.getDrawable(MainActivity.this
+                , top.trumeet.snippet.aospanimation.library.R.drawable.fp_illustration_enrollment));
         fingerprintIsolated.setSupportBackgroundTintList(ColorStateList.valueOf(getResources().getColor(top.trumeet.snippet.aospanimation.library.R.color.fingerprint_indicator_background_resting)));
+
+        CheckBox showBackground = findViewById(R.id.check_show_background);
+        showBackground.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                if (b) {
+                    fingerprintIsolated.setBackgroundDrawable(AppCompatResources.getDrawable(MainActivity.this
+                            , top.trumeet.snippet.aospanimation.library.R.drawable.fp_illustration_enrollment));
+                    fingerprintIsolated.setSupportBackgroundTintList(ColorStateList.valueOf(getResources().getColor(top.trumeet.snippet.aospanimation.library.R.color.fingerprint_indicator_background_resting)));
+                } else {
+                    fingerprintIsolated.setBackgroundDrawable(null);
+                }
+            }
+        });
 
         fingerprintIsolated.setImageDrawable(mFingerprintAnimator.getDrawable());
     }
