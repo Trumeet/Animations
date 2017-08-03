@@ -47,10 +47,11 @@ Beautiful animations and views from AOSP
              android:background="@drawable/fp_illustration_enrollment"
              android:backgroundTint="@color/fingerprint_indicator_background_resting" />
  ```
-
+ ```java
  LoopAnimatedVectorDrawableCompat mFingerprintAnimator = new LoopAnimatedVectorDrawableCompat(AnimatedVectorDrawableCompat.create(this,
                                                                        R.drawable.enrollment_fingerprint_isolated_animation));
  fingerprintIsolated.setImageDrawable(mFingerprintAnimator.getDrawable());
+ ```
 
  開始動畫: `mFingerprintAnimator.startIconAnimation()`
 
