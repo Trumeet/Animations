@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="fingerprint_animation_size">88dp</dimen>
+
+    <!-- The y translation to apply at the start in appear animations. -->
+    <dimen name="appear_y_translation_start">32dp</dimen>
 </resources>

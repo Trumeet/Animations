@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/icon_top"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@null"
+        android:src="@mipmap/ic_launcher_round"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <TableLayout
+        android:id="@+id/table"
+        android:layout_gravity="center"
+        android:layout_marginTop="16dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TableRow>
+            <RadioButton />
+            <RadioButton />
+            <RadioButton />
+            <RadioButton />
+            <RadioButton />
+        </TableRow>
+        <TableRow>
+            <RadioButton />
+            <RadioButton />
+            <RadioButton />
+            <RadioButton />
+            <RadioButton />
+        </TableRow>
+        <TableRow>
+            <RadioButton />
+            <RadioButton />
+            <RadioButton />
+            <RadioButton />
+            <RadioButton />
+        </TableRow>
+        <TableRow>
+            <RadioButton />
+            <RadioButton />
+            <RadioButton />
+            <RadioButton />
+            <RadioButton />
+        </TableRow>
+        <TableRow>
+            <RadioButton />
+            <RadioButton />
+            <RadioButton />
+            <RadioButton />
+            <RadioButton />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

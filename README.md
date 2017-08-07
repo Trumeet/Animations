@@ -69,6 +69,18 @@ Beautiful animations and views from AOSP
 
  停止動畫: `mFingerprintAnimator.stopIconAnimation()`
 
+## Appear / Disappear Animation
+
+  **設置 中 確認密碼時的進入/退出動畫** (API21+)
+
+  Activity 位於：[ConfirmLockPattern](https://android.googlesource.com/platform/packages/apps/Settings/+/master/src/com/android/settings/ConfirmLockPattern.java)
+
+  ![AppearAnimation](https://raw.githubusercontent.com/AndroidSnippet/Animations/master/art/AppearAnimation.GIF)
+
+  使用方法：[參照 Demo AppearAnimationActivity](https://github.com/AndroidSnippet/Animations/tree/master/app/src/main/java/top/trumeet/snippet/aospanimation/AppearAnimationActivity.java)
+
+  `startAnimation2d`的第一個參數 T[][] 是可以傳入 X行X列 的二維數組，比如説 TableLayout。詳見 Demo
+
 # Licenses
 使用本項目請確保您遵守 `Apache License 2.0`
 ```
