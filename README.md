@@ -37,7 +37,7 @@ Beautiful animations and views from AOSP
 
  來自 [platform_packages_apps_settings/FingerprintEnrollEnrolling.java](https://github.com/android/platform_packages_apps_settings/blob/master/src/com/android/settings/fingerprint/FingerprintEnrollEnrolling.java)
 
- ![animation](https://raw.githubusercontent.com/AndroidSnippet/Animations/master/art/FingerprintAnimationImageView_0.PNG)
+ ![FingerprintIsloated](https://raw.githubusercontent.com/AndroidSnippet/Animations/master/art/FingerprintIsloated.gif)
 
  ```xml
  <android.support.v7.widget.AppCompatImageView
@@ -75,7 +75,7 @@ Beautiful animations and views from AOSP
 
   Activity 位於：[ConfirmLockPattern](https://android.googlesource.com/platform/packages/apps/Settings/+/master/src/com/android/settings/ConfirmLockPattern.java)
 
-  ![AppearAnimation](https://raw.githubusercontent.com/AndroidSnippet/Animations/master/art/AppearAnimation.GIF)
+  ![AppearAnimation](https://raw.githubusercontent.com/AndroidSnippet/Animations/master/art/AppearAnimation.gif)
 
   使用方法：[參照 Demo AppearAnimationActivity](https://github.com/AndroidSnippet/Animations/tree/master/app/src/main/java/top/trumeet/snippet/aospanimation/AppearAnimationActivity.java)
 
