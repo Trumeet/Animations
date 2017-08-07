@@ -37,7 +37,7 @@ Beautiful animations and views from AOSP
 
  來自 [platform_packages_apps_settings/FingerprintEnrollEnrolling.java](https://github.com/android/platform_packages_apps_settings/blob/master/src/com/android/settings/fingerprint/FingerprintEnrollEnrolling.java)
 
- ![FingerprintIsloated](https://raw.githubusercontent.com/AndroidSnippet/Animations/master/art/FingerprintIsloated.gif)
+ ![FingerprintIsloated](https://raw.githubusercontent.com/AndroidSnippet/Animations/master/art/FingerprintIsolated.gif)
 
  ```xml
  <android.support.v7.widget.AppCompatImageView
