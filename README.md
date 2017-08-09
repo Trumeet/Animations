@@ -2,7 +2,7 @@
 
 [![](https://jitpack.io/v/AndroidSnippet/Animations.svg)](https://jitpack.io/#AndroidSnippet/Animations)
 
-Beautiful animations and views from AOSP
+Beautiful animations from AOSP
 
 # 依賴
 
@@ -18,7 +18,7 @@ Beautiful animations and views from AOSP
 
 * 查詢最新版本
 
-請前往 [Release頁面](https://github.com/AndroidSnippet/Animations/releases) 獲取最新版本號
+當前最新版本號：[![](https://jitpack.io/v/AndroidSnippet/Animations.svg)](https://jitpack.io/#AndroidSnippet/Animations)
 
 * 添加依賴
 
@@ -71,7 +71,7 @@ Beautiful animations and views from AOSP
 
 ## Appear / Disappear Animation
 
-  **設置 中 確認密碼時的進入/退出動畫** (API21+)
+  **設置 中 確認密碼時的進入/退出動畫**
 
   Activity 位於：[ConfirmLockPattern](https://android.googlesource.com/platform/packages/apps/Settings/+/master/src/com/android/settings/ConfirmLockPattern.java)
 
