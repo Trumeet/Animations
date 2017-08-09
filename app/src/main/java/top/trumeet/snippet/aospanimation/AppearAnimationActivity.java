@@ -1,8 +1,9 @@
 package top.trumeet.snippet.aospanimation;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.support.graphics.drawable.AnimationUtilsCompat;
 import android.view.View;
-import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -27,6 +28,7 @@ public class AppearAnimationActivity extends ViewAnimationActivity implements Ap
     private View icon_top;
     private TableLayout tableLayout;
 
+    @SuppressLint("RestrictedApi")
     @Override
     public void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,11 +37,11 @@ public class AppearAnimationActivity extends ViewAnimationActivity implements Ap
         tableLayout = findViewById(R.id.table);
         mAppearAnimationUtils = new AppearAnimationUtils(this,
                 AppearAnimationUtils.DEFAULT_APPEAR_DURATION, 2f /* translationScale */,
-                1.3f /* delayScale */, AnimationUtils.loadInterpolator(
+                1.3f /* delayScale */, AnimationUtilsCompat.loadInterpolator(
                 this, R.anim.linear_out_slow_in));
         mDisappearAnimationUtils = new DisappearAnimationUtils(this,
                 125, 4f /* translationScale */,
-                0.3f /* delayScale */, AnimationUtils.loadInterpolator(
+                0.3f /* delayScale */, AnimationUtilsCompat.loadInterpolator(
                 this, R.anim.fast_out_linear_in),
                 new AppearAnimationUtils.RowTranslationScaler() {
                     @Override

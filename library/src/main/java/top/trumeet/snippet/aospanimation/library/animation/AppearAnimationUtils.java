@@ -19,7 +19,6 @@ package top.trumeet.snippet.aospanimation.library.animation;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
-import android.annotation.TargetApi;
 import android.content.Context;
 import android.view.RenderNodeAnimator;
 import android.view.View;
@@ -31,9 +30,8 @@ import top.trumeet.snippet.aospanimation.library.R;
 /**
  * A class to make nice appear transitions for views in a tabular layout.
  *
- * TODO: use non-hidden apis and support pre-lollipop roms
+ * TODO: use non-hidden apis
  */
-@TargetApi(21)
 public class AppearAnimationUtils implements AppearAnimationCreator<View> {
 
     public static final long DEFAULT_APPEAR_DURATION = 220;
@@ -181,6 +179,18 @@ public class AppearAnimationUtils implements AppearAnimationCreator<View> {
         return mStartTranslation;
     }
 
+    /**
+     * Returns RenderNodeAnimator is support in current ROM.
+     * @return Support
+     */
+    private static boolean isSupportRenderNodeAnimator () {
+        try {
+            return Class.forName("android.view.RenderNodeAnimator") != null;
+        } catch (ClassNotFoundException e) {
+            return false;
+        }
+    }
+
     @Override
     public void createAnimation(final View view, long delay, long duration, float translationY,
             boolean appearing, Interpolator interpolator, final Runnable endRunnable) {
@@ -189,8 +199,7 @@ public class AppearAnimationUtils implements AppearAnimationCreator<View> {
             view.setTranslationY(appearing ? translationY : 0);
             Animator alphaAnim;
             float targetAlpha =  appearing ? 1f : 0f;
-            if (view.isHardwareAccelerated()) {
-                // TODO: Use non-hidden and compat API
+            if (view.isHardwareAccelerated() && isSupportRenderNodeAnimator()) {
                 RenderNodeAnimator alphaAnimRt = new RenderNodeAnimator(RenderNodeAnimator.ALPHA,
                         targetAlpha);
                 alphaAnimRt.setTarget(view);
@@ -227,7 +236,7 @@ public class AppearAnimationUtils implements AppearAnimationCreator<View> {
     public static void startTranslationYAnimation(View view, long delay, long duration,
             float endTranslationY, Interpolator interpolator) {
         Animator translationAnim;
-        if (view.isHardwareAccelerated()) {
+        if (view.isHardwareAccelerated() && isSupportRenderNodeAnimator()) {
             RenderNodeAnimator translationAnimRt = new RenderNodeAnimator(
                     RenderNodeAnimator.TRANSLATION_Y, endTranslationY);
             translationAnimRt.setTarget(view);
